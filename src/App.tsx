@@ -1,8 +1,8 @@
-import react, { useState } from "react";
+import react, { useState, useEffect } from "react";
 import Board from "./components/Board";
 import Keyboard from "./components/Keyboard";
 import "./index.css";
-import { boardDefault } from "./helpers/Words";
+import { boardDefault, generateWordSet } from "./helpers/Words";
 import { createContext } from "react";
 
 export const AppContext = createContext<any>(null);
@@ -10,14 +10,37 @@ export const AppContext = createContext<any>(null);
 function App() {
   const [board, setBoard] = useState<any>(boardDefault);
   const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letterPos: 0 });
+  const [wordSet, setWordSet] = useState(new Set());
 
   const correctWord = "RIGHT";
 
+  useEffect(() => {
+    generateWordSet().then((words: any) => {
+      setWordSet(words.wordSet);
+    });
+  }, []);
+
   const onEnter = () => {
-    if (currAttempt.letterPos < 5) {
+    if (currAttempt.letterPos !== 5) {
       return;
     }
-    setCurrAttempt({ attempt: currAttempt.attempt + 1, letterPos: 0 });
+
+    let currWord = "";
+    for (let i = 0; i < 5; i++) {
+      currWord += board[currAttempt.attempt][i];
+    }
+
+    if (wordSet.has(currWord.toLowerCase().trim())) {
+      setCurrAttempt({ attempt: currAttempt.attempt + 1, letterPos: 0 });
+    } else {
+      console.log(wordSet);
+      console.log(currWord);
+      alert("Word not found");
+    }
+
+    if (currWord.toLowerCase()  === correctWord) {
+      alert("You won!");
+    }
   };
 
   const onDelete = () => {

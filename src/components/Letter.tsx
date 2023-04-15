@@ -15,6 +15,7 @@ const Letter = (props: Props) => {
   //if it is not correct letter for this position, and it is not empty the and the typed letter is somewhere then it is yellow
   const almost = !correct && letter !== "" && correctWord.includes(letter);
 
+  //This changes the id to change the color to indicate if the letter is correct - with CSS
   //if it is correct, then correct if not then is it almost, if not the we set error
   const letterState =
     currAttempt.attempt > props.attemptVal &&
