@@ -11,6 +11,8 @@ function App() {
   const [board, setBoard] = useState<any>(boardDefault);
   const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letterPos: 0 });
 
+  const correctWord = "RIGHT";
+
   const onEnter = () => {
     if (currAttempt.letterPos < 5) {
       return;
@@ -57,6 +59,7 @@ function App() {
           onSelectLetter,
           onDelete,
           onEnter,
+          correctWord,
         }}
       >
         <div className="game">
