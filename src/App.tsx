@@ -11,17 +11,11 @@ function App() {
   const [board, setBoard] = useState<any>(boardDefault);
   const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letterPos: 0 });
 
-  const onSelectLetter = (keyVal: any) => {
-    if (currAttempt.letterPos > 4) {
+  const onEnter = () => {
+    if (currAttempt.letterPos < 5) {
       return;
     }
-
-    const newBoard = [...board];
-    newBoard[currAttempt.attempt][currAttempt.letterPos] = keyVal;
-    setBoard(newBoard);
-
-    //After the first letter move forward to the next Key Position
-    setCurrAttempt({ ...currAttempt, letterPos: currAttempt.letterPos + 1 });
+    setCurrAttempt({ attempt: currAttempt.attempt + 1, letterPos: 0 });
   };
 
   const onDelete = () => {
@@ -36,11 +30,17 @@ function App() {
     setCurrAttempt({ ...currAttempt, letterPos: currAttempt.letterPos - 1 });
   };
 
-  const onEnter = () => {
-    if (currAttempt.letterPos !== 5) {
+  const onSelectLetter = (keyVal: any) => {
+    if (currAttempt.letterPos > 4) {
       return;
     }
-    setCurrAttempt({ attempt: currAttempt.attempt + 1, letterPos: 0 });
+
+    const newBoard = [...board];
+    newBoard[currAttempt.attempt][currAttempt.letterPos] = keyVal;
+    setBoard(newBoard);
+
+    //After the first letter move forward to the next Key Position
+    setCurrAttempt({ ...currAttempt, letterPos: currAttempt.letterPos + 1 });
   };
 
   return (
