@@ -5,7 +5,7 @@ import Key from "./Key";
 type Props = {};
 
 const Keyboard = (props: Props) => {
-  const { currAttempt, onSelectLetter, onEnter, onDelete } =
+  const { currAttempt, onSelectLetter, onEnter, onDelete, disabledLetters } =
     useContext(AppContext);
   const keys1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
   const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
@@ -54,7 +54,11 @@ const Keyboard = (props: Props) => {
           return (
             <div>
               {" "}
-              <Key keyVal={key} bigKey={false} />{" "}
+              <Key
+                keyVal={key}
+                bigKey={false}
+                // disabled={disabledLetters.includes(key)}
+              />{" "}
             </div>
           );
         })}
@@ -64,7 +68,11 @@ const Keyboard = (props: Props) => {
           return (
             <div>
               {" "}
-              <Key keyVal={key} bigKey={false} />{" "}
+              <Key
+                keyVal={key}
+                bigKey={false}
+                // disabled={disabledLetters.includes(key)}
+              />{" "}
             </div>
           );
         })}
@@ -75,7 +83,11 @@ const Keyboard = (props: Props) => {
           return (
             <div>
               {" "}
-              <Key keyVal={key} bigKey={false} />{" "}
+              <Key
+                keyVal={key}
+                bigKey={false}
+                // disabled={disabledLetters.includes(key)}
+              />{" "}
             </div>
           );
         })}

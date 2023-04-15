@@ -11,6 +11,8 @@ function App() {
   const [board, setBoard] = useState<any>(boardDefault);
   const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letterPos: 0 });
   const [wordSet, setWordSet] = useState(new Set());
+  const [disabledLetters, setDisabledLetters] = useState([]);
+
 
   const correctWord = "RIGHT";
 
@@ -81,6 +83,7 @@ function App() {
           onDelete,
           onEnter,
           correctWord,
+          setDisabledLetters,
         }}
       >
         <div className="game">
