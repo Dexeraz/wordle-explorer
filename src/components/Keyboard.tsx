@@ -1,4 +1,5 @@
 import React from "react";
+import Key from "./Key";
 
 type Props = {};
 
@@ -10,18 +11,20 @@ const Keyboard = (props: Props) => {
     <div className="keyboard">
       <div className="line1">
         {keys1.map((key) => {
-            return <div> {key} </div>
+            return <div> <Key keyVal={key} bigKey={false}/> </div>
         })}
       </div>
       <div className="line2">
       {keys2.map((key) => {
-            return <div> {key} </div>
+            return <div> <Key keyVal={key} bigKey={false}/> </div>
         })}
       </div>
       <div className="line3">
+        <Key keyVal={"ENTER"} bigKey={true}/>
       {keys3.map((key) => {
-            return <div> {key} </div>
+            return <div> <Key keyVal={key} bigKey={false}/> </div>
         })}
+        <Key keyVal={"DELETE"} bigKey={true}/>
       </div>
     </div>
   );
