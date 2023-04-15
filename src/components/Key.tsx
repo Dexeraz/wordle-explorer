@@ -7,20 +7,16 @@ type Props = {
 };
 
 const Key = (props: Props) => {
-  const { board, setBoard, currAttempt, setCurrAttempt } =
-    useContext(AppContext);
+  const { onSelectLetter, onDelete, onEnter } = useContext(AppContext);
 
   const selectLetter = () => {
-    if (currAttempt.letterPos > 4) {
-      return;
+    if (props.keyVal === "ENTER") {
+      onEnter();
+    } else if (props.keyVal === "DELETE") {
+      onDelete();
+    } else {
+      onSelectLetter(props.keyVal);
     }
-    
-    const newBoard = [...board];
-    newBoard[currAttempt.attempt][currAttempt.letterPos] = props.keyVal;
-    setBoard(newBoard);
-
-    //After the first letter move forward to the next Key Position
-    setCurrAttempt({ ...currAttempt, letterPos: currAttempt.letterPos + 1 });
   };
 
   return (
