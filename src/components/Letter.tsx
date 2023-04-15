@@ -21,6 +21,9 @@ const Letter = (props: Props) => {
     currAttempt.attempt > props.attemptVal &&
     (correct ? "correct" : almost ? "almost" : "error");
 
+
+  //For the future: RIGHT - ALL GREAN, RIGTT WE GET 🟩🟩🟩🟨🟩 - which is not correct
+
   return (
     <div className="letter" id={letterState.toString()}>
       {letter}
