@@ -9,13 +9,16 @@ export const AppContext = createContext<any>(null);
 
 function App() {
   const [board, setBoard] = useState<any>(boardDefault); //any for now
+  const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letterPos: 0 });
 
   return (
     <div>
       <nav>
         <h1>Wordle Explorer</h1>
       </nav>
-      <AppContext.Provider value={{ board, setBoard }}>
+      <AppContext.Provider
+        value={{ board, setBoard, currAttempt, setCurrAttempt }}
+      >
         <div className="game">
           <Board />
           <Keyboard />
