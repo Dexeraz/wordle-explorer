@@ -27,18 +27,15 @@ const Letter = (props: Props) => {
     currAttempt.attempt > props.attemptVal &&
     (correct ? "correct" : almost ? "almost" : "error");
 
+  const letterClass = `letter ${letterState}`;
+
   useEffect(() => {
     if (letter !== "" && !correct && !almost) {
       setDisabledLetters((prev: any) => [...prev, letter]);
     }
-    console.log("disabledLetters", disabledLetters);
   }, [currAttempt.attempt]);
 
-  return (
-    <div className="letter" id={letterState.toString()}>
-      {letter}
-    </div>
-  );
+  return <div className={letterClass}>{letter}</div>;
 };
 
 export default Letter;

@@ -8,7 +8,8 @@ type Props = {
 };
 
 const Key = (props: Props) => {
-  const { onSelectLetter, onDelete, onEnter, gameOver } = useContext(AppContext);
+  const { onSelectLetter, onDelete, onEnter, gameOver } =
+    useContext(AppContext);
 
   const selectLetter = () => {
     if (gameOver.gameOver) return;
@@ -22,12 +23,14 @@ const Key = (props: Props) => {
     }
   };
 
+  const keyClass = props.bigKey
+    ? "key big"
+    : props.disabled
+    ? "key disabled"
+    : "key";
+
   return (
-    <div
-      className="key"
-      id={props.bigKey ? "big" : props.disabled && "disabled"}
-      onClick={selectLetter}
-    >
+    <div className={keyClass} onClick={selectLetter}>
       {props.keyVal}
     </div>
   );
