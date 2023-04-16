@@ -5,12 +5,8 @@ function GameOver() {
   const { currAttempt, gameOver, correctWord } = useContext(AppContext);
   return (
     <div className="gameOver">
-      <h3>
-        {gameOver.guessedWord
-          ? "Congrats! You won!"
-          : "Try next time!"}
-      </h3>
-      <h1>Correct Word: {correctWord}</h1>
+      <h1>{gameOver.guessedWord ? "Congrats! You won!" : "Try next time!"}</h1>
+      <h2>{gameOver.guessedWord ? "" : `Correct Word: ${correctWord}`}</h2>
       {gameOver.guessedWord && (
         <h3>You guessed in {currAttempt.attempt} attempts</h3>
       )}
