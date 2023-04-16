@@ -103,8 +103,6 @@ nav h1 {
   cursor: pointer;
 }
 
-/* ... */
-
 .key.big {
   width: 100px;
 }
@@ -125,3 +123,15 @@ nav h1 {
   background-color: #3a393c;
 }
 
+.playAgainButton {
+  width: 150px;
+  height: 70px;
+  margin: 5px;
+  border-radius: 4px;
+  place-items: center;
+  font-size: 20px;
+  background-color: grey;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
