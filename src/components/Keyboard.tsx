@@ -5,8 +5,13 @@ import Key from "./Key";
 type Props = {};
 
 const Keyboard = (props: Props) => {
-  const { currAttempt, onSelectLetter, onEnter, onDelete, disabledLetters } =
-    useContext(AppContext);
+  const {
+    currAttempt,
+    onSelectLetter,
+    onEnter,
+    onDelete,
+    disabledLetters = [],
+  } = useContext(AppContext);
   const keys1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
   const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
   const keys3 = ["Z", "X", "C", "V", "B", "N", "M"];
@@ -50,47 +55,45 @@ const Keyboard = (props: Props) => {
   return (
     <div className="keyboard" onKeyDown={handleKeyboard}>
       <div className="line1">
-        {keys1.map((key) => {
+        {keys1.map((key, index) => {
           return (
-            <div>
-              {" "}
+            <div key={index}>
               <Key
                 keyVal={key}
                 bigKey={false}
-                // disabled={disabledLetters.includes(key)}
-              />{" "}
+                disabled={disabledLetters.includes(key)}
+              />
             </div>
           );
         })}
       </div>
       <div className="line2">
-        {keys2.map((key) => {
+        {keys2.map((key, index) => {
           return (
-            <div>
-              {" "}
+            <div key={index}>
               <Key
                 keyVal={key}
                 bigKey={false}
-                // disabled={disabledLetters.includes(key)}
-              />{" "}
+                disabled={disabledLetters.includes(key)}
+              />
             </div>
           );
         })}
       </div>
       <div className="line3">
         <Key keyVal={"ENTER"} bigKey={true} />
-        {keys3.map((key) => {
+        {keys3.map((key, index) => {
           return (
-            <div>
-              {" "}
+            <div key={index}>
               <Key
                 keyVal={key}
                 bigKey={false}
-                // disabled={disabledLetters.includes(key)}
-              />{" "}
+                disabled={disabledLetters.includes(key)}
+              />
             </div>
           );
         })}
+
         <Key keyVal={"DELETE"} bigKey={true} />
       </div>
     </div>
