@@ -120,5 +120,11 @@ nav h1 {
 }
 
 #disabled {
-  background-color: #3a393c;
+  /* background-color: #3a393c; */
+  background-color: #5d31b4;
+}
+
+.disabled {
+  /* background-color: #3a393c; */
+  background-color: #5d31b4;
 }

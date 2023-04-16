@@ -10,7 +10,7 @@ const Keyboard = (props: Props) => {
     onSelectLetter,
     onEnter,
     onDelete,
-    disabledLetters = [],
+    disabledLetters = []
   } = useContext(AppContext);
   const keys1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
   const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
@@ -52,8 +52,6 @@ const Keyboard = (props: Props) => {
     };
   }, [handleKeyboard]);
 
-  console.log(disabledLetters); //tests
-
   return (
     <div className="keyboard" onKeyDown={handleKeyboard}>
       <div className="line1">
@@ -83,7 +81,7 @@ const Keyboard = (props: Props) => {
         })}
       </div>
       <div className="line3">
-        <Key keyVal={"ENTER"} bigKey={true} />
+        <Key keyVal={"ENTER"} bigKey={true} disabled={false}/>
         {keys3.map((key, index) => {
           return (
             <div key={index}>
@@ -96,7 +94,7 @@ const Keyboard = (props: Props) => {
           );
         })}
 
-        <Key keyVal={"DELETE"} bigKey={true} />
+        <Key keyVal={"DELETE"} bigKey={true} disabled={false}/>
       </div>
     </div>
   );

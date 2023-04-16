@@ -12,19 +12,17 @@ function App() {
   const [board, setBoard] = useState<any>(boardDefault);
   const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letterPos: 0 });
   const [wordSet, setWordSet] = useState(new Set());
-  const [disabledLetters, setDisabledLetters] = useState([]);
-  const [correctWord, setCorrectWord] = useState("")
+  const [disabledLetters, setDisabledLetters] = useState<string[]>([]);
+  const [correctWord, setCorrectWord] = useState("");
   const [gameOver, setGameOver] = useState({
     gameOver: false,
     guessedWord: false,
   });
 
-  
-
   useEffect(() => {
     generateWordSet().then((words: any) => {
       setWordSet(words.wordSet);
-      setCorrectWord(words.todaysWord)
+      setCorrectWord(words.todaysWord);
       console.log(words.todaysWord); //For tests
     });
   }, []);
@@ -97,6 +95,7 @@ function App() {
           onDelete,
           onEnter,
           correctWord,
+          disabledLetters,
           setDisabledLetters,
           gameOver,
           setGameOver,

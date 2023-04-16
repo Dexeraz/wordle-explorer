@@ -8,9 +8,11 @@ type Props = {
 };
 
 const Key = (props: Props) => {
-  const { onSelectLetter, onDelete, onEnter } = useContext(AppContext);
+  const { onSelectLetter, onDelete, onEnter, gameOver } = useContext(AppContext);
 
   const selectLetter = () => {
+    if (gameOver.gameOver) return;
+
     if (props.keyVal === "ENTER") {
       onEnter();
     } else if (props.keyVal === "DELETE") {
