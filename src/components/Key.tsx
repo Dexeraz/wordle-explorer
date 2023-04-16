@@ -4,7 +4,7 @@ import { AppContext } from "../App";
 type Props = {
   keyVal: any;
   bigKey: boolean;
-  disabled?: boolean;
+  disabled?: any;
 };
 
 const Key = (props: Props) => {
@@ -23,7 +23,7 @@ const Key = (props: Props) => {
   return (
     <div
       className="key"
-      id={props.bigKey ? "big" : props.disabled ? "disabled" : ""}
+      id={props.bigKey ? "big" : props.disabled && "disabled"}
       onClick={selectLetter}
     >
       {props.keyVal}

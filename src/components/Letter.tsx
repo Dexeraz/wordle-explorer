@@ -26,7 +26,7 @@ const Letter = (props: Props) => {
 
   useEffect(() => {
     if (letter !== "" && !correct && !almost) {
-      console.log(letter);
+      //console.log(letter);
       setDisabledLetters((prev: any) => [...prev, letter]);
     }
   }, [currAttempt.attempt]);

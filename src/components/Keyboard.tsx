@@ -52,6 +52,8 @@ const Keyboard = (props: Props) => {
     };
   }, [handleKeyboard]);
 
+  console.log(disabledLetters); //tests
+
   return (
     <div className="keyboard" onKeyDown={handleKeyboard}>
       <div className="line1">
