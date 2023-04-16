@@ -58,9 +58,9 @@ function App() {
     if (currAttempt.letterPos === 0) {
       return;
     }
-    const newBaord = [...board];
-    newBaord[currAttempt.attempt][currAttempt.letterPos - 1] = "";
-    setBoard(newBaord);
+    const newBoard = [...board];
+    newBoard[currAttempt.attempt][currAttempt.letterPos - 1] = "";
+    setBoard(newBoard);
 
     // We stay at the same Attempt but we go back to the previous letterPosition
     setCurrAttempt({ ...currAttempt, letterPos: currAttempt.letterPos - 1 });
