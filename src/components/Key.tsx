@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { AppContext } from "../App";
 
 type Props = {
-  keyVal: any;
+  keyVal: string;
   bigKey: boolean;
-  disabled?: any;
+  disabled?: boolean;
 };
 
 const Key = (props: Props) => {

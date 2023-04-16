@@ -9,6 +9,12 @@ export const boardDefault = [
   ["", "", "", "", ""],
 ];
 
+type WordsType = {
+  wordSet: Set<string>;
+  todaysWord: string;
+};
+
+
 export const generateWordSet = async () => {
   let wordSet;
   let todaysWord;

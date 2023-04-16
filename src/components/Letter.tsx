@@ -7,13 +7,8 @@ type Props = {
 };
 
 const Letter = (props: Props) => {
-  const {
-    board,
-    correctWord,
-    currAttempt,
-    disabledLetters,
-    setDisabledLetters,
-  } = useContext(AppContext);
+  const { board, correctWord, currAttempt, setDisabledLetters } =
+    useContext(AppContext);
   const letter = board[props.attemptVal][props.letterPos];
 
   const correct = correctWord.toUpperCase()[props.letterPos] === letter;
@@ -31,7 +26,7 @@ const Letter = (props: Props) => {
 
   useEffect(() => {
     if (letter !== "" && !correct && !almost) {
-      setDisabledLetters((prev: any) => [...prev, letter]);
+      setDisabledLetters((prev: string[]) => [...prev, letter]);
     }
   }, [currAttempt.attempt]);
 
