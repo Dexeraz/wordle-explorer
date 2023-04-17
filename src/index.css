@@ -120,6 +120,11 @@ nav h1 {
   background-color: #3a393c;
 }
 
+.gameOver { 
+  height: 300px;
+  margin-top: 80px;
+}
+
 .playAgainButton {
   width: 150px;
   height: 70px;
